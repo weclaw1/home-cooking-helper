@@ -1,21 +1,26 @@
 <script setup lang="ts">
-// This starter template is using Vue 3 <script setup> SFCs
-// Check out https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup
-import HelloWorld from './components/HelloWorld.vue'
+import { onBeforeUnmount, onMounted, ref } from 'vue'
+import BottomNavbar from './components/BottomNavbar.vue'
+import TopNavbar from './components/TopNavbar.vue'
+
+const isMobile = ref(true)
+
+onMounted(() => {
+  onResize();
+  window.addEventListener("resize", onResize, { passive: true });
+})
+
+onBeforeUnmount(() => {
+  window.removeEventListener("resize", onResize);
+})
+
+function onResize() {
+  isMobile.value = window.innerWidth < 1024;
+}
 </script>
 
 <template>
-  <img alt="Vue logo" src="./assets/logo.png" />
-  <HelloWorld msg="Hello Vue 3 + TypeScript + Vite" />
+  <top-navbar v-if="!isMobile" />
+  <router-view />
+  <bottom-navbar v-if="isMobile" />
 </template>
-
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
