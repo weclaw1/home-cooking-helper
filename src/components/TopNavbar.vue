@@ -13,8 +13,8 @@
 
     <div class="navbar-menu">
       <div class="navbar-start">
-        <router-link class="navbar-item" to="/products">
-          {{ $t("menu.products") }}
+        <router-link class="navbar-item" to="/home_products">
+          {{ $t("menu.homeProducts") }}
         </router-link>
 
         <router-link class="navbar-item" to="/recipes">

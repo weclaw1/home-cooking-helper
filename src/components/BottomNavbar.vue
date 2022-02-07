@@ -5,7 +5,7 @@
     role="navigation"
   >
     <div class="navbar-brand">
-      <router-link class="navbar-item is-expanded bottom-navbar-item" to="/products">
+      <router-link class="navbar-item is-expanded bottom-navbar-item" to="/home_products">
         <span class="icon">
           <font-awesome-icon icon="home" size="lg" />
         </span>

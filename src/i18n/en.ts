@@ -1,6 +1,6 @@
 export default {
   menu: {
-    products: "Products",
+    homeProducts: "Products in home",
     recipes: "Recipes",
     shoppingList: "Shopping List",
     settings: "Settings",

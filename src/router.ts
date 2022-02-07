@@ -1,7 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router';
 
 import ShoppingList from "./views/ShoppingList.vue";
-import Products from "./views/Products.vue";
+import HomeProducts from "./views/HomeProducts.vue";
 import Recipes from "./views/Recipes.vue";
 import Recipe from "./views/Recipe.vue";
 import Settings from "./views/Settings.vue";
@@ -22,11 +22,11 @@ const routes = [
     },
   },
   {
-    path: "/products",
-    name: "products",
-    component: Products,
+    path: "/home_products",
+    name: "home_products",
+    component: HomeProducts,
     meta: {
-      title: "Home Cooking Helper - Products",
+      title: "Home Cooking Helper - Products in home",
     },
   },
   {
