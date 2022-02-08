@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import { Product, Unit } from '../entities/Product';
-import ProductList from '../components/ProductList.vue';
-import NewProductForm from '../components/NewProductForm.vue';
-import { homeProductsStore } from '../stores/HomeProductsStore';
+import { Product, Unit } from "../entities/Product";
+import ProductList from "../components/ProductList.vue";
+import NewProductForm from "../components/NewProductForm.vue";
+import { homeProductsStore } from "../stores/HomeProductsStore";
 
 const homeProducts = homeProductsStore.state.homeProducts;
 
@@ -22,8 +22,12 @@ function addHomeProduct(product: Product) {
 <template>
   <section class="section">
     <div class="container">
-      <product-list :products="homeProducts" @delete="deleteHomeProduct" @update="updateHomeProduct"/>
-      <new-product-form @add="addHomeProduct"/>
+      <product-list
+        :products="homeProducts"
+        @delete="deleteHomeProduct"
+        @update="updateHomeProduct"
+      />
+      <new-product-form @add="addHomeProduct" />
     </div>
   </section>
 </template>

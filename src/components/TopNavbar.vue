@@ -5,7 +5,7 @@
     role="navigation"
     aria-label="main navigation"
   >
-<!--     <div class="navbar-brand">
+    <!--     <div class="navbar-brand">
       <router-link class="navbar-item" to="/">
         <img src="../assets/logo.svg" width="112" height="28" />
       </router-link>
@@ -29,9 +29,9 @@
       <div class="navbar-end">
         <div class="navbar-item">
           <div class="buttons">
-              <router-link class="button" to="/settings">
-                <strong>{{ $t("menu.settings") }}</strong>
-              </router-link>
+            <router-link class="button" to="/settings">
+              <strong>{{ $t("menu.settings") }}</strong>
+            </router-link>
           </div>
         </div>
       </div>

@@ -1,4 +1,4 @@
-import { createRouter, createWebHistory } from 'vue-router';
+import { createRouter, createWebHistory } from "vue-router";
 
 import ShoppingList from "./views/ShoppingList.vue";
 import HomeProducts from "./views/HomeProducts.vue";
@@ -7,9 +7,9 @@ import Recipe from "./views/Recipe.vue";
 import Settings from "./views/Settings.vue";
 import PageNotFound from "./views/PageNotFound.vue";
 
-declare module 'vue-router' {
+declare module "vue-router" {
   interface RouteMeta {
-    title: string
+    title: string;
   }
 }
 
