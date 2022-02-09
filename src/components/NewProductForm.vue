@@ -25,7 +25,7 @@ function addNewProduct() {
       />
       <button @click="addNewProduct" class="card-header-icon" aria-label="add">
         <span class="icon">
-          <font-awesome-icon icon="plus" />
+          <font-awesome-icon :icon="['fas', 'plus']" />
         </span>
       </button>
     </header>

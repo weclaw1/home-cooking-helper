@@ -10,7 +10,7 @@
         to="/home_products"
       >
         <span class="icon">
-          <font-awesome-icon icon="home" size="lg" />
+          <font-awesome-icon :icon="['fas', 'home']" size="lg" />
         </span>
       </router-link>
       <router-link
@@ -18,7 +18,7 @@
         to="/recipes"
       >
         <span class="icon">
-          <font-awesome-icon icon="utensils" size="lg" />
+          <font-awesome-icon :icon="['fas', 'utensils']" size="lg" />
         </span>
       </router-link>
       <router-link
@@ -26,7 +26,7 @@
         to="/shopping_list"
       >
         <span class="icon">
-          <font-awesome-icon icon="shopping-basket" size="lg" />
+          <font-awesome-icon :icon="['fas', 'shopping-basket']" size="lg" />
         </span>
       </router-link>
       <router-link
@@ -34,7 +34,7 @@
         to="/settings"
       >
         <span class="icon">
-          <font-awesome-icon icon="sliders-h" size="lg" />
+          <font-awesome-icon :icon="['fas', 'sliders-h']" size="lg" />
         </span>
       </router-link>
     </div>

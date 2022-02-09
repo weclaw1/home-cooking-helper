@@ -2,7 +2,12 @@
 import ProductListItem from "./ProductListItem.vue";
 import { Product } from "../entities/Product";
 
-const props = defineProps<{ products: Product[] }>();
+const props = withDefaults(
+  defineProps<{ products: Product[]; canBeCrossed: boolean }>(),
+  {
+    canBeCrossed: false,
+  }
+);
 const emit = defineEmits<{
   (event: "delete", productName: string): void;
   (event: "update", productName: string, product: Product): void;
@@ -14,6 +19,7 @@ const emit = defineEmits<{
     v-for="product in products"
     :key="product.name"
     :product="product"
+    :can-be-crossed="canBeCrossed"
     @delete="(productName) => $emit('delete', productName)"
     @update="(productName, product) => $emit('update', productName, product)"
   />

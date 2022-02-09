@@ -12,6 +12,8 @@ import {
   faTimes,
 } from "@fortawesome/free-solid-svg-icons";
 
+import { faSquare, faSquareCheck } from "@fortawesome/free-regular-svg-icons";
+
 library.add(
   faShoppingBasket,
   faUtensils,
@@ -21,7 +23,9 @@ library.add(
   faTrashAlt,
   faPlus,
   faCheck,
-  faTimes
+  faTimes,
+  faSquare,
+  faSquareCheck
 );
 
 export default FontAwesomeIcon;

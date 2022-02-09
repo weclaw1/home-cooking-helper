@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { Product, Unit } from "../entities/Product";
+import { Product } from "../entities/Product";
 import ProductList from "../components/ProductList.vue";
 import NewProductForm from "../components/NewProductForm.vue";
 import { homeProductsStore } from "../stores/HomeProductsStore";
