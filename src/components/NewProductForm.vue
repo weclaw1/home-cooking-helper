@@ -6,11 +6,11 @@ const emit = defineEmits<{
   (event: "add", product: Product): void;
 }>();
 
-const newProduct = ref(new Product("", 0, null));
+const newProduct = ref(new Product("", 0, "pcs"));
 
 function addNewProduct() {
   emit("add", Object.assign({}, newProduct.value));
-  newProduct.value = new Product("", 0, null);
+  newProduct.value = new Product("", 0, "pcs");
 }
 </script>
 

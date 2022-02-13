@@ -4,23 +4,23 @@ import { Product } from "../entities/Product";
 import ProductForm from "./ProductForm.vue";
 
 const props = withDefaults(
-  defineProps<{ product: Product; canBeCrossed: boolean }>(),
+  defineProps<{ product: Product; canBeCrossed: boolean; viewOnly: boolean }>(),
   {
     canBeCrossed: false,
+    viewOnly: false,
   }
 );
 const emit = defineEmits<{
   (event: "delete", productName: string): void;
   (event: "update", productName: string, product: Product): void;
 }>();
-const showActions = ref(false);
+
 const edit = ref(false);
 
 const editedProduct = ref(Object.assign({}, props.product));
 const productDisplayText = computed(() => {
   if (props.product.quantity > 0) {
-    const productUnit = props.product.unit !== null ? props.product.unit : "";
-    return `${props.product.name} - ${props.product.quantity}${productUnit}`;
+    return `${props.product.name} - ${props.product.quantity}${props.product.unit}`;
   }
   return props.product.name;
 });
@@ -59,12 +59,18 @@ function toggleCrossProduct() {
         >
           {{ productDisplayText }}
         </p>
-        <button @click="edit = true" class="card-header-icon" aria-label="edit">
+        <button
+          v-if="!viewOnly"
+          @click="edit = true"
+          class="card-header-icon"
+          aria-label="edit"
+        >
           <span class="icon">
             <font-awesome-icon :icon="['fas', 'pencil-alt']" />
           </span>
         </button>
         <button
+          v-if="!viewOnly"
           @click="$emit('delete', product.name)"
           class="card-header-icon"
           aria-label="delete"
@@ -82,21 +88,21 @@ function toggleCrossProduct() {
           v-model:unit="editedProduct.unit"
         />
         <button
-          @click="updateProduct"
-          class="card-header-icon"
-          aria-label="confirm"
-        >
-          <span class="icon">
-            <font-awesome-icon :icon="['fas', 'check']" />
-          </span>
-        </button>
-        <button
           @click="edit = false"
           class="card-header-icon"
           aria-label="cancel"
         >
-          <span class="icon">
+          <span class="icon has-text-danger">
             <font-awesome-icon :icon="['fas', 'times']" />
+          </span>
+        </button>
+        <button
+          @click="updateProduct"
+          class="card-header-icon has-text-success"
+          aria-label="confirm"
+        >
+          <span class="icon">
+            <font-awesome-icon :icon="['fas', 'check']" />
           </span>
         </button>
       </template>

@@ -5,4 +5,12 @@ export default {
     shoppingList: "Shopping List",
     settings: "Settings",
   },
+  product: {
+    name: "Product name",
+    quantity: "Quantity",
+  },
+  recipe: {
+    name: "Recipe name",
+    text: "Recipe text",
+  },
 };

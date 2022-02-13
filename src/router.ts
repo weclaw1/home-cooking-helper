@@ -38,10 +38,18 @@ const routes = [
     },
   },
   {
-    path: "/recipes/:recipe_id",
+    path: "/recipes/:recipeName",
     name: "recipe",
     component: Recipe,
     props: true,
+    meta: {
+      title: "Home Cooking Helper - Recipe",
+    },
+  },
+  {
+    path: "/new_recipe",
+    name: "new_recipe",
+    component: Recipe,
     meta: {
       title: "Home Cooking Helper - Recipe",
     },

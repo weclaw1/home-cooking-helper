@@ -3,12 +3,12 @@ import { Unit } from "../entities/Product";
 const props = defineProps<{
   name: string;
   quantity: number;
-  unit: string | null;
+  unit: string;
 }>();
 const emit = defineEmits<{
   (event: "update:name", name: string): void;
   (event: "update:quantity", quantity: number): void;
-  (event: "update:unit", unit: string | null): void;
+  (event: "update:unit", unit: string): void;
 }>();
 </script>
 
@@ -22,7 +22,7 @@ const emit = defineEmits<{
             :value="name"
             @input="$emit('update:name', ($event.target as HTMLInputElement).value)"
             type="text"
-            placeholder="Product Name"
+            :placeholder="$t('product.name')"
           />
         </p>
       </div>
@@ -34,16 +34,15 @@ const emit = defineEmits<{
               :value="quantity"
               @input="$emit('update:quantity', ($event.target as HTMLInputElement).valueAsNumber)"
               type="number"
-              placeholder="Quantity"
+              :placeholder="$t('product.quantity')"
             />
           </p>
           <p class="control">
             <span class="select">
               <select
                 :value="unit"
-                @input="$emit('update:unit', ($event.target as HTMLInputElement).value !== '' ? ($event.target as HTMLInputElement).value : null)"
+                @input="$emit('update:unit', ($event.target as HTMLInputElement).value)"
               >
-                <option value=""></option>
                 <option v-for="unit in Object.values(Unit)">
                   {{ unit }}
                 </option>

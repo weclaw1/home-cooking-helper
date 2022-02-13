@@ -3,9 +3,14 @@ import ProductListItem from "./ProductListItem.vue";
 import { Product } from "../entities/Product";
 
 const props = withDefaults(
-  defineProps<{ products: Product[]; canBeCrossed: boolean }>(),
+  defineProps<{
+    products: Product[];
+    canBeCrossed?: boolean;
+    viewOnly?: boolean;
+  }>(),
   {
     canBeCrossed: false,
+    viewOnly: false,
   }
 );
 const emit = defineEmits<{
@@ -20,6 +25,7 @@ const emit = defineEmits<{
     :key="product.name"
     :product="product"
     :can-be-crossed="canBeCrossed"
+    :view-only="viewOnly"
     @delete="(productName) => $emit('delete', productName)"
     @update="(productName, product) => $emit('update', productName, product)"
   />
