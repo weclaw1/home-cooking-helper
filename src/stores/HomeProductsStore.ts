@@ -6,6 +6,12 @@ export const homeProductsStore = {
     homeProducts: loadFromLocalStorage(),
   }),
 
+  find(productName: string): Product | undefined {
+    return this.state.homeProducts.find(
+      (product) => product.name === productName
+    );
+  },
+
   addProduct(product: Product) {
     if (this.containsProduct(product.name)) {
       throw new Error(

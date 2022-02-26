@@ -16,4 +16,7 @@ export default {
   recipes: {
     addToShoppingList: "Dodaj produkty do listy z zakupami",
   },
+  shoppingList: {
+    addBoughtProductsToProductsInHome: "Dodaj kupione produkty do produktów w domu",
+  }
 };

@@ -13,4 +13,10 @@ export default {
     name: "Recipe name",
     text: "Recipe text",
   },
+  recipes: {
+    addToShoppingList: "Add products to shopping list",
+  },
+  shoppingList: {
+    addBoughtProductsToProductsInHome: "Add bought products to products in home",
+  }
 };
