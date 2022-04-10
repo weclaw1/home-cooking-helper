@@ -7,10 +7,12 @@ const props = withDefaults(
     products: Product[];
     canBeCrossed?: boolean;
     viewOnly?: boolean;
+    highlightProductsInHouse?: boolean;
   }>(),
   {
     canBeCrossed: false,
     viewOnly: false,
+    highlightProductsInHouse: false,
   }
 );
 const emit = defineEmits<{
@@ -26,6 +28,7 @@ const emit = defineEmits<{
     :product="product"
     :can-be-crossed="canBeCrossed"
     :view-only="viewOnly"
+    :highlight-products-in-house="highlightProductsInHouse"
     @delete="(productName) => $emit('delete', productName)"
     @update="(productName, product) => $emit('update', productName, product)"
   />

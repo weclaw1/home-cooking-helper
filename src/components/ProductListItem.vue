@@ -1,13 +1,21 @@
 <script setup lang="ts">
 import { computed, onUpdated, ref } from "vue";
+import { convert } from "../convert";
 import { Product } from "../entities/Product";
+import { homeProductsStore } from "../stores/HomeProductsStore";
 import ProductForm from "./ProductForm.vue";
 
 const props = withDefaults(
-  defineProps<{ product: Product; canBeCrossed: boolean; viewOnly: boolean }>(),
+  defineProps<{
+    product: Product;
+    canBeCrossed?: boolean;
+    viewOnly?: boolean;
+    highlightProductsInHouse?: boolean;
+  }>(),
   {
     canBeCrossed: false,
     viewOnly: false,
+    highlightProductsInHouse: false,
   }
 );
 const emit = defineEmits<{
@@ -34,10 +42,35 @@ function toggleCrossProduct() {
   editedProduct.value.crossed = !editedProduct.value.crossed;
   emit("update", props.product.name, editedProduct.value);
 }
+
+const productInHome = computed(() => {
+  const homeProduct = homeProductsStore.find(props.product.name);
+  if (homeProduct === undefined) {
+    return false;
+  }
+  if (props.product.quantity === 0) {
+    return true;
+  }
+  if (
+    convert(homeProduct.quantity)
+      .from(homeProduct.unit)
+      .to(props.product.unit) < props.product.quantity
+  ) {
+    return false;
+  }
+  return true;
+});
 </script>
 
 <template>
-  <div class="card product-list-item">
+  <div
+    class="card product-list-item"
+    :class="{
+      'has-background-success-light': highlightProductsInHouse
+        ? productInHome
+        : false,
+    }"
+  >
     <header class="card-header">
       <template v-if="!edit">
         <button

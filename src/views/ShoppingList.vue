@@ -23,8 +23,10 @@ function addShoppingListProduct(product: Product) {
 }
 
 function addBoughtProductsToProductsInHome() {
-  const crossedProducts = shoppingListProducts.filter(product => product.crossed);
-  for (let product of crossedProducts) {
+  const crossedProducts = shoppingListProducts.filter(
+    (product) => product.crossed
+  );
+  for (const product of crossedProducts) {
     const productInProductsInHome = homeProductsStore.find(product.name);
     if (productInProductsInHome) {
       if (product.quantity === 0) {
@@ -39,10 +41,12 @@ function addBoughtProductsToProductsInHome() {
         quantity: updatedProductQuantity,
       });
     } else {
-      homeProductsStore.addProduct({...product, crossed: false});
+      homeProductsStore.addProduct({ ...product, crossed: false });
     }
   }
-  crossedProducts.forEach(product => shoppingListProductsStore.deleteProduct(product.name));
+  crossedProducts.forEach((product) =>
+    shoppingListProductsStore.deleteProduct(product.name)
+  );
 }
 </script>
 
@@ -50,7 +54,9 @@ function addBoughtProductsToProductsInHome() {
   <section class="section">
     <div class="container">
       <shopping-list-control-bar
-        @add-bought-products-to-products-in-home="addBoughtProductsToProductsInHome"
+        @add-bought-products-to-products-in-home="
+          addBoughtProductsToProductsInHome
+        "
       />
       <product-list
         can-be-crossed

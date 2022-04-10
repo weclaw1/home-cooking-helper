@@ -45,7 +45,11 @@ function deleteRecipeProduct(productName: string) {
       <div class="card-content">
         <div class="columns">
           <div class="column">
-            <product-list view-only :products="recipe.products" />
+            <product-list
+              view-only
+              highlight-products-in-house
+              :products="recipe.products"
+            />
           </div>
           <div class="column">
             <p>

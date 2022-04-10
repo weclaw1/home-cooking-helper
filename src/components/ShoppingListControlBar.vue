@@ -8,7 +8,10 @@ const emit = defineEmits<{
     <div class="level-left"></div>
     <div class="level-right">
       <div class="level-item">
-        <button @click="$emit('addBoughtProductsToProductsInHome')" class="button">
+        <button
+          @click="$emit('addBoughtProductsToProductsInHome')"
+          class="button"
+        >
           {{ $t("shoppingList.addBoughtProductsToProductsInHome") }}
         </button>
       </div>

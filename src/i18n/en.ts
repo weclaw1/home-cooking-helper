@@ -12,11 +12,10 @@ export default {
   recipe: {
     name: "Recipe name",
     text: "Recipe text",
-  },
-  recipes: {
-    addToShoppingList: "Add products to shopping list",
+    onlyMissingProducts: "Only missing products",
   },
   shoppingList: {
-    addBoughtProductsToProductsInHome: "Add bought products to products in home",
-  }
+    addBoughtProductsToProductsInHome:
+      "Add bought products to products in home",
+  },
 };

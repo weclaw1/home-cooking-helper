@@ -1,7 +1,12 @@
 <script setup lang="ts">
+import { ref } from "vue";
+
 const emit = defineEmits<{
-  (event: "addProductsToShoppingList"): void;
+  (event: "addProductsToShoppingList", onlyMissingProducts: boolean): void;
+  (event: "removeProductsFromProductsInHome"): void;
 }>();
+
+const onlyMissingProducts = ref(true);
 </script>
 <template>
   <nav class="level is-mobile">
@@ -13,13 +18,40 @@ const emit = defineEmits<{
           </span>
         </router-link>
       </div>
+      <div class="level-item">
+        <button
+          @click="$emit('removeProductsFromProductsInHome')"
+          class="button"
+        >
+          <span class="icon">
+            <font-awesome-icon :icon="['fas', 'minus']" size="lg" />
+          </span>
+          <span class="icon">
+            <font-awesome-icon :icon="['fas', 'home']" size="lg" />
+          </span>
+        </button>
+      </div>
     </div>
 
     <div class="level-right">
       <div class="level-item">
-        <button @click="$emit('addProductsToShoppingList')" class="button">
-          {{ $t("recipes.addToShoppingList") }}
+        <button
+          @click="$emit('addProductsToShoppingList', onlyMissingProducts)"
+          class="button"
+        >
+          <span class="icon">
+            <font-awesome-icon :icon="['fas', 'plus']" size="lg" />
+          </span>
+          <span class="icon">
+            <font-awesome-icon :icon="['fas', 'shopping-basket']" size="lg" />
+          </span>
         </button>
+      </div>
+      <div class="level-item">
+        <label class="checkbox">
+          <input type="checkbox" v-model="onlyMissingProducts" />
+          {{ $t("recipe.onlyMissingProducts") }}
+        </label>
       </div>
     </div>
   </nav>
