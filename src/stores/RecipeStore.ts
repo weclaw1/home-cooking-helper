@@ -61,6 +61,11 @@ export const recipeStore = {
   containsRecipe(recipeName: string): boolean {
     return this.state.recipes.some((recipe) => recipe.name === recipeName);
   },
+
+  clear() {
+    this.state.recipes = [];
+    saveToLocalStorage(this.state.recipes);
+  },
 };
 
 function loadFromLocalStorage(): Recipe[] {

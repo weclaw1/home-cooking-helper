@@ -13,6 +13,7 @@ import {
   faTimes,
   faEye,
   faArrowLeft,
+  faUpload,
 } from "@fortawesome/free-solid-svg-icons";
 
 import { faSquare, faSquareCheck } from "@fortawesome/free-regular-svg-icons";
@@ -31,7 +32,8 @@ library.add(
   faSquare,
   faSquareCheck,
   faEye,
-  faArrowLeft
+  faArrowLeft,
+  faUpload
 );
 
 export default FontAwesomeIcon;

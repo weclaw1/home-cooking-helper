@@ -53,6 +53,11 @@ export const shoppingListProductsStore = {
       (product) => product.name === productName
     );
   },
+
+  clear() {
+    this.state.shoppingListProducts = [];
+    saveToLocalStorage(this.state.shoppingListProducts);
+  },
 };
 
 function loadFromLocalStorage(): Product[] {
