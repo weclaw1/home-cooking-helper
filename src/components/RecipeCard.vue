@@ -52,7 +52,7 @@ function deleteRecipeProduct(productName: string) {
             />
           </div>
           <div class="column">
-            <p>
+            <p class="recipe-text">
               {{ recipe.text }}
             </p>
           </div>
@@ -127,5 +127,8 @@ function deleteRecipeProduct(productName: string) {
 <style scoped lang="scss">
 .is-fullwidth {
   width: 100%;
+}
+.recipe-text {
+  white-space: pre-wrap;
 }
 </style>
